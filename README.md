@@ -10,11 +10,13 @@ Components include:
 Configuration
 -------------
 PvKey is configured in wga_settings.py where it points to the correct paths to the GATK bundle, reference genome, and binaries 
-* Mutect should be added to the tools folder 
-* SVDetect should be added to the tools folder
-* b37_cosmic_v54_120711.vcf should be added to the bundle folder 
-* dbsnp_132_b37.leftAligned.vcf should be added to the bundle folder 
-* hg19.len should be added to the bundle folder
+* Mutect should be added to the /WGA/tools directory 
+* SVDetect should be added to the /WGA/tools directory
+* b37_cosmic_v54_120711.vcf should be added to the /WGA/bundle/current directory 
+* dbsnp_132_b37.leftAligned.vcf should be added to the /WGA/bundle/current directory 
+* hg19.len should be added to the /WGA/bundle/current directory
+
+Note: on Orchestra the files are placed in the right order, and the WGA directory is available currently under /groups/cbi/02.Public.data/WGA/, it will be moved to /groups/lpm/WGA.
 
 Usage
 -----
