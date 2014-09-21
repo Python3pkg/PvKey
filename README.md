@@ -26,7 +26,7 @@ cli -h
 
 BWA aln + GATK Data Preprocessing + Mutect + SVDetect
 ------------------------------------------
-* genomekey json_somatic -n "My Tumor/Normal Workflow” -i /path/to/json
+* python cli.py json_somatic -n "My Tumor/Normal Workflow” -i /path/to/json
 
 .. code-block:: json
     
