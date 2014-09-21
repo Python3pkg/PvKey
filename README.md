@@ -18,6 +18,8 @@ PvKey is configured in wga_settings.py where it points to the correct paths to t
 
 Note: on Orchestra the files are placed in the right order, and the WGA directory is available currently under /groups/cbi/02.Public.data/WGA/, it will be moved to /groups/lpm/WGA.
 
+* sce_svdetect (PvKey/Resources/sce_svdetect) should be added to StarClusterExtensions to install SVDetect required packages on the worker nodes.
+
 Usage
 -----
 Inside the PvKey directory, execute:
