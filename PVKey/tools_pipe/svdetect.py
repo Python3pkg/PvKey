@@ -3,11 +3,11 @@ from cosmos.Workflow.models import TaskFile
 from cosmos.session import settings as cosmos_settings
 from algorithm_settings import settings
 import os
-import commands
+import subprocess
 import re
 
 def parse(file_log):
-    input=map(lambda x: str(x),file_log)
+    input=[str(x) for x in file_log]
     file_to_parse=str(input[0])
     return file_to_parse
 

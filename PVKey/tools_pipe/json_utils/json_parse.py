@@ -14,7 +14,7 @@ def main(input,output_file):
     
     
     for element in output_prefix:
-        print element
+        print(element)
         lista=element.split(',')
         lista=lista[:-1]
         out2.write('  {\n')

@@ -2,10 +2,10 @@ from cosmos.lib.ezflow.tool import Tool
 from cosmos.Workflow.models import TaskFile
 from cosmos.session import settings as cosmos_settings
 import os
-import commands
+import subprocess
 
 def list2input(l):
-    return " ".join(map(lambda x: str(x),l))
+    return " ".join([str(x) for x in l])
     #return "cat " +" && cat ".join(map(lambda x: str(x),l))
     #return "\n".join([" ".format(n) for n in l])
 """
@@ -64,7 +64,7 @@ class createInput(Mutect):
     mem_req = 3*1024
     
     def cmd(self,i,s,p):   
-        return 'echo "--input_file:{p[sample_type]} {input}" > $OUT.txt', {'input': ' '.join(map(lambda x: str(x),i['bam']))}   
+        return 'echo "--input_file:{p[sample_type]} {input}" > $OUT.txt', {'input': ' '.join([str(x) for x in i['bam']])}   
 
 class Somatic2(Mutect):
     name = "Run Mutect"

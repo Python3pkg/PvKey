@@ -66,11 +66,11 @@ def json_local(workflow,input_dict,**kwargs):
     """
     dirList=os.listdir(input_dict)
     for files in dirList:
-        print input_dict+files
+        print(input_dict+files)
         input_json = json.load(open(input_dict+files,'r'))
         inputs = [ INPUT(name='fastq.gz',path=i['path'],fmt='fastq.gz',tags=i,stage_name='Load Input Fastqs') for i in input_json ]
         for i in inputs:
-            print i
+            print(i)
         DAG(ignore_stage_name_collisions=True).sequence_(
             add_(inputs),
             Pipeline_local(),

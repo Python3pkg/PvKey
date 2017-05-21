@@ -5,8 +5,8 @@ import os
 opj = os.path.join
 
 def list2input(l):
-    print " ".join(map(lambda x: 'INPUT='+str(x),l))
-    return " ".join(map(lambda x: 'INPUT='+str(x),l))
+    print(" ".join(['INPUT='+str(x) for x in l]))
+    return " ".join(['INPUT='+str(x) for x in l])
 
 class Picard(Tool):
     time_req = 12*60

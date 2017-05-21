@@ -4,7 +4,7 @@ from cosmos.session import settings as cosmos_settings
 import os
 
 def list2input(l):
-    return "-I " +" -I ".join(map(lambda x: str(x),l))
+    return "-I " +" -I ".join([str(x) for x in l])
 
 def get_interval(param_dict):
     """

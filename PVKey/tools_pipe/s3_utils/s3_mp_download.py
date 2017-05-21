@@ -5,7 +5,7 @@ from math import ceil
 from multiprocessing import Pool
 import os
 import time
-import urlparse
+import urllib.parse
 
 import boto
 from boto.s3.connection import OrdinaryCallingFormat
@@ -72,7 +72,7 @@ def do_part_download(args):
         os.close(fd)
         s = s / 1024 / 1024.
         logger.debug("Downloaded %0.2fM in %0.2fs at %0.2fMBps" % (s, t2, s/t2))
-    except Exception, err:
+    except Exception as err:
         logger.debug("Retry request %d of max %d times" % (current_tries, max_tries))
         if (current_tries > max_tries):
             logger.error(err)
@@ -89,7 +89,7 @@ def gen_byte_ranges(size, num_parts):
 def main(src, dest, num_processes=2, split=32, force=False, verbose=False, quiet=False, secure=True, max_tries=5):
 
     # Check that src is a valid S3 url
-    split_rs = urlparse.urlsplit(src)
+    split_rs = urllib.parse.urlsplit(src)
     if split_rs.scheme != "s3":
         raise ValueError("'%s' is not an S3 url" % src)
 
@@ -155,7 +155,7 @@ def main(src, dest, num_processes=2, split=32, force=False, verbose=False, quiet
                     (s, t2, s/t2))
         except KeyboardInterrupt:
             logger.warning("User terminated")
-        except Exception, err:
+        except Exception as err:
             logger.error(err)
 
 if __name__ == "__main__":

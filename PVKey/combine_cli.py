@@ -24,13 +24,13 @@ def main():
     
     file_to_run=join(wga_settings['pipes'],'cli.py')
     cmds3="python "+file_to_run+" upload_s3 -n "+"\""+args["name"]+" - UploadS3"+"\""+" -b \""+args["bucket"]+"\""+" -p \""+args["project"]+"\""+" -out_dict "+args["fastq.gz_dict"]
-    print cmds3 
+    print(cmds3) 
     os.system(cmds3)
     cmd_fq="python "+file_to_run+" fastq_chunk -n "+"\""+args["name"]+" - Chunk Fastq.gz"+"\""+" -il "+"\""+project_folder+"\""+" -out "+"\""+chunk_folder+"\""+" -out_json "+args["output_json"]
-    print cmd_fq 
+    print(cmd_fq) 
     os.system(cmd_fq)
     cmd2="python "+file_to_run+" json -n "+"\""+args["name"]+" - GATK best practice"+"\""+" -il "+args["output_json"]
-    print cmd2 
+    print(cmd2) 
     os.system(cmd2)
 
 main()

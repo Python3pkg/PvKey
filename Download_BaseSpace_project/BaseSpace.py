@@ -42,25 +42,25 @@ def download_Project(project_Name, output_folder):
             id_project=nameProject_id[1].split('=')
             id_project=id_project[1]
             samples=myAPI.getSamplesByProject(id_project,  queryPars=QueryParameters( {'Limit': '100'}))
-            print "There are "+str(len(samples))+" samples in the requested project ("+str(project_Name)+" - ID_PROJECT "+str(id_project)+")"
+            print("There are "+str(len(samples))+" samples in the requested project ("+str(project_Name)+" - ID_PROJECT "+str(id_project)+")")
             
             if not os.path.exists(output_folder):
                 os.makedirs(output_folder)
             
-            print time.ctime()+" START DOWNLOADING"
+            print(time.ctime()+" START DOWNLOADING")
             for file in samples:
                 file_out=file.getFiles(myAPI)
                 #print file_out
                 
                 for fastq in file_out:
                     fastq.downloadFile(myAPI,output_folder)
-                    print time.ctime()+" FILE "+str(fastq)+" DOWNLOADED"
+                    print(time.ctime()+" FILE "+str(fastq)+" DOWNLOADED")
                     path_file=join(output_folder,str(fastq))
                     path_S3=join(str(project_Name),str(fastq))
                     s3_upload(path_file,"bmi-ngs",path_S3)
-            print time.ctime()+" DOWNLOAD COMPLETED"
+            print(time.ctime()+" DOWNLOAD COMPLETED")
     if project_found==0:
-        print "Project Not Found"
+        print("Project Not Found")
 
 def main():
     # Parser for command-line options, arguments ---> http://docs.python.org/dev/library/argparse.html#

@@ -12,11 +12,11 @@ import gzip
 from os.path import isfile, join
 from cosmos.utils.helpers import confirm
 from itertools import islice
-from json_param import setting
+from .json_param import setting
 import argparse
 
 def main(input_fastq,output_dir,output_json,chunksize,buffersize):
-    print input_fastq
+    print(input_fastq)
     #Create Output directory
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)   
@@ -44,7 +44,7 @@ def main(input_fastq,output_dir,output_json,chunksize,buffersize):
             rgid=output_prefix
             rgid=rgid.replace('_R2', "")
         else:
-            print "WARNING: "+os.path.basename(input_fastq)+" is not formatted properly"
+            print("WARNING: "+os.path.basename(input_fastq)+" is not formatted properly")
             
         eof = False
         while not eof:

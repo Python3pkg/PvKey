@@ -36,7 +36,7 @@ def Pipeline():
     if testing:
         intervals = ('interval', [20])
     else:
-        intervals = ('interval',range(1,23) + ['X', 'Y'])
+        intervals = ('interval',list(range(1,23)) + ['X', 'Y'])
     glm = ('glm', ['SNP', 'INDEL'])
     
     align_to_reference = sequence_(
@@ -92,9 +92,9 @@ def Pipeline_local():
     if testing:
         intervals = ('interval', [20])
     else:
-        intervals = ('interval',range(1,23) + ['X', 'Y'])
+        intervals = ('interval',list(range(1,23)) + ['X', 'Y'])
     glm = ('glm', ['SNP', 'INDEL'])
-    print [glm][0]
+    print([glm][0])
     
     align_to_reference = sequence_(
         apply_(
@@ -140,7 +140,7 @@ def Pipeline_Somatic():
     if testing:
         intervals = ('interval', [20])
     else:
-        intervals = ('interval',range(1,23) + ['X', 'Y'])
+        intervals = ('interval',list(range(1,23)) + ['X', 'Y'])
     glm = ('glm', ['SNP', 'INDEL'])
 
     align_to_reference = sequence_(

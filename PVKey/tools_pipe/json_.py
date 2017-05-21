@@ -1,5 +1,5 @@
 from cosmos.lib.ezflow.tool import Tool
-from json_utils import json_split1fastq
+from .json_utils import json_split1fastq
 from os.path import join
 
 class Split(Tool):
